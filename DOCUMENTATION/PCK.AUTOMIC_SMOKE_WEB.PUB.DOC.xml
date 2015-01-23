@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-15" standalone="no"?><uc-export clientvers="11.0.0">
+<DOCU name="PCK.AUTOMIC_SMOKE_WEB.PUB.DOC">
+<HEADER state="1">
+<Title/>
+<ArchiveKey1/>
+<ArchiveKey2/>
+<OH_SubType/>
+</HEADER>
+<DOCU_Docu state="1" type="text">
+<DOC><![CDATA[The Web smoke test runbook functions help you to carry out simple tests after deploying a web-based application. 
+
+The following checks are supported:
+ 
+* assert if a web page is accessable
+* assert the title or an arbitrary text found on a web page after sending a GET/POST request]]></DOC>
+</DOCU_Docu>
+</DOCU>
+</uc-export>
