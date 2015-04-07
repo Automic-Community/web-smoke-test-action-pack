@@ -1,0 +1,34 @@
+*** Settings ***
+Documentation     NOTE:
+...               add note here
+Suite Setup       Suite Setup
+Force Tags        GET_SEARCH_ELEMENT    win
+Test Template     Get Search Element Template
+Resource          ../../resources/keywords.txt
+
+*** Test Cases ***    URL                                      EXPECTED                                   USERNAME         PASSWORD      TIMEOUT    IGNORE
+Valid, with user, password, proxy
+                      https://${_HOST}/smoke_web/basicauth/    //body[contains(text(),'hello world!')]    Administrator    S3rv3r@Aut    10000      YES
+
+Valid, with no user, no pass, proxy
+                      http://${_HOST}/smoke_web/               //body[contains(text(),'hello world!')]    ${EMPTY}         ${EMPTY}      10000      NO
+
+Valid, with user, password, proxy, no certificate
+                      http://${_HOST}/smoke_web/basicauth/     //body[contains(text(),'hello world!')]    Administrator    S3rv3r@Aut    10000      NO
+
+Valid, with no user, password, proxy, no certificate
+                      http://${_HOST}/smoke_web/               //body[contains(text(),'hello world!')]    Administrator    S3rv3r@Aut    10000      NO
+
+*** Keywords ***
+Get Search Element Template
+    [Arguments]    ${url}    ${expected}    ${username}    ${password}    ${timeout}    ${ignore}
+    Init Action    ${ACTION_GET_SEARCH_ELEMENT}
+    Action Set    ${PRT_GET_SEARCH_ELEMENT_ST_URL}    ${url}
+    Action Set    ${PRT_GET_SEARCH_ELEMENT_ST_EXPECTED_ELEMENT}    ${expected}
+    Action Set    ${PRT_GET_SEARCH_ELEMENT_ST_USERNAME}    ${username}
+    Action Set    ${PRT_GET_SEARCH_ELEMENT_ST_PASSWORD}    ${password}
+    Action Set    ${PRT_GET_SEARCH_ELEMENT_ST_OPEN_TIMEOUT}    ${timeout}
+    Action Set    ${PRT_GET_SEARCH_ELEMENT_ST_IGNORE_SERVER_CERT}    ${ignore}
+    Action Execute
+    Action Report Should Be Found
+    Action Return Code Should Be    0

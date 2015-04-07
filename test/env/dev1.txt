@@ -1,0 +1,13 @@
+*** Settings ***
+Library           com.automic.robot.itpa.ItpaLibrary
+
+*** Variables ***
+#---- AE -------------------------
+@{AE}             AE11ITPA    vvnsdev01    2217    3002/API/API    123    # system, host, port, user, pass
+#---- GLOBAL CONTEXT VARIABLES ---
+${_AE_SYSTEM}     @{AE}[0]
+${_AE_HOST}       @{AE}[1]
+${_AE_PORT}       @{AE}[2]
+${_AE_USER}       @{AE}[3]
+${_AE_PASS}       @{AE}[4]
+${_AE_TEMP_FOLD}    AT_TEMP

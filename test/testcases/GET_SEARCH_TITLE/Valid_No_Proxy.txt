@@ -1,0 +1,54 @@
+*** Settings ***
+Documentation     NOTE:
+...               add note here
+Suite Setup       Suite Setup
+Force Tags        GET_SEARCH_TITLE    win
+Test Template     Get Search Title Template
+Resource          ../../resources/keywords.txt
+
+*** Test Cases ***    URL                                      EXPECTED TITLE          REGEX    USERNAME         PASSWORD      TIMEOUT    IGNORE
+Valid Proxy with text, user and password,
+                      https://${_HOST}/smoke_web/basicauth/    Web smoke test          NO       Administrator    S3rv3r@Aut    10000      YES
+
+Valid Proxy with text, no user and pass
+                      https://${_HOST}/smoke_web/              Web smoke test          NO       ${EMPTY}         ${EMPTY}      10000      YES
+
+Valid Proxy with text, no user and pass, no certificate
+                      http://${_HOST}/smoke_web/               Web smoke test          NO       ${EMPTY}         ${EMPTY}      10000      NO
+
+Valid Proxy with text, user and pass, no certificate
+                      http://${_HOST}/smoke_web/basicauth/     Web smoke test          NO       Administrator    S3rv3r@Aut    10000      NO
+
+Valid Proxy with user and password
+                      https://${_HOST}/smoke_web/basicauth/    Web [^t]moke test       YES      Administrator    S3rv3r@Aut    10000      YES
+
+Valid Proxy with no user and pass
+                      https://${_HOST}/smoke_web/              Web smoke{1,3} te?st    YES      ${EMPTY}         ${EMPTY}      10000      YES
+
+Valid Proxy with no user and pass, no certificate
+                      http://${_HOST}/smoke_web/               Web +smoke test|page    YES      ${EMPTY}         ${EMPTY}      10000      NO
+
+Valid Proxy with user and pass, no certificate
+                      http://${_HOST}/smoke_web/basicauth/     [Wb]*.. s.oke test$     YES      Administrator    S3rv3r@Aut    10000      NO
+
+Valid Proxy, Regex, but input text
+                      https://${_HOST}/smoke_web/basicauth/    ^Web smoke test         YES      Administrator    S3rv3r@Aut    10000      YES
+
+Valid Proxy, sensitive case
+                      https://${_HOST}/smoke_web/basicauth/    web smoke test          NO       Administrator    S3rv3r@Aut    10000      YES
+
+*** Keywords ***
+Get Search Title Template
+    [Arguments]    ${url}    ${title}    ${regex}    ${username}    ${password}    ${timeout}
+    ...    ${ignore}
+    Init Action    ${ACTION_GET_SEARCH_TITLE}
+    Action Set    ${PRT_GET_SEARCH_TITLE_ST_URL}    ${url}
+    Action Set    ${PRT_GET_SEARCH_TITLE_ST_EXPECTED_TITLE}    ${title}
+    Action Set    ${PRT_GET_SEARCH_TITLE_ST_TREAT_AS_REGEX}    ${regex}
+    Action Set    ${PRT_GET_SEARCH_TITLE_ST_USERNAME}    ${username}
+    Action Set    ${PRT_GET_SEARCH_TITLE_ST_PASSWORD}    ${password}
+    Action Set    ${PRT_GET_SEARCH_TITLE_ST_OPEN_TIMEOUT}    ${timeout}
+    Action Set    ${PRT_GET_SEARCH_TITLE_ST_IGNORE_SERVER_CERT}    ${ignore}
+    Action Execute
+    Action Report Should Be Found
+    Action Return Code Should Be    0

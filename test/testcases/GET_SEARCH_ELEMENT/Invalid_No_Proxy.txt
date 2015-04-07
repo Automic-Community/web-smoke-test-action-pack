@@ -1,0 +1,42 @@
+*** Settings ***
+Documentation     NOTE:
+...               add note here
+Suite Setup       Suite Setup
+Force Tags        GET_SEARCH_ELEMENT    win
+Test Template     Get Search Element Template
+Resource          ../../resources/keywords.txt
+
+*** Test Cases ***    URL                                      EXPECTED                                   USERNAME         PASSWORD      TIMEOUT    IGNORE    RETURN CODE
+Invalid user with proxy
+                      https://${_HOST}/smoke_web/basicauth/    //body[contains(text(),'hello world!')]    Adminis          S3rv3r@Aut    10000      YES       3
+
+Invalid password with proxy
+                      https://${_HOST}/smoke_web/basicauth/    //body[contains(text(),'hello world!')]    Administrator    S3rv3r        10000      YES       3
+
+Timeout               http://10.255.255.1                      //body[contains(text(),'hello world!')]    ${EMPTY}         ${EMPTY}      10000      YES       1
+
+WebServer is not available
+                      http://127.0.0.1:3434/                   //body[contains(text(),'hello world!')]    ${EMPTY}         ${EMPTY}      10000      YES       2
+
+Not Ignore certificate for HTTPS sites, with proxy
+                      https://${_HOST}/smoke_web/              //body[contains(text(),'hello world!')]    ${EMPTY}         ${EMPTY}      10000      NO        6
+
+Expected element does not appear on the page
+                      http://${_HOST}/smoke_web/basicauth/     //body[text()='not found']                 Administrator    S3rv3r@Aut    10000      NO        7
+
+*** Keywords ***
+Get Search Element Template
+    [Arguments]    ${url}    ${expected}    ${username}    ${password}    ${timeout}    ${ignore}
+    ...    ${returnCode}
+    Init Action    ${ACTION_GET_SEARCH_ELEMENT}
+    Action Set    ${PRT_GET_SEARCH_ELEMENT_ST_URL}    ${url}
+    Action Set    ${PRT_GET_SEARCH_ELEMENT_ST_EXPECTED_ELEMENT}    ${expected}
+    Action Set    ${PRT_GET_SEARCH_ELEMENT_ST_USERNAME}    ${username}
+    Action Set    ${PRT_GET_SEARCH_ELEMENT_ST_PASSWORD}    ${password}
+    Action Set    ${PRT_GET_SEARCH_ELEMENT_ST_OPEN_TIMEOUT}    ${timeout}
+    Action Set    ${PRT_GET_SEARCH_ELEMENT_ST_IGNORE_SERVER_CERT}    ${ignore}
+    Action Execute
+    Action Report Should Be Found
+    Action Return Code Should Be    ${returnCode}
+    #Action Return Status Should Be    ${returnStatus}
+    #Action Return Variable Should Be    &UC4RB_OUT_VARA#    ${outVara}

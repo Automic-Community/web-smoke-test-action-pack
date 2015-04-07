@@ -1,0 +1,4 @@
+*** Variables ***
+#---- AE status ---------------------
+${ENDED_OK - ended normally}    ENDED_OK - ended normally
+${ENDED_NOT_OK - aborted}    ENDED_NOT_OK - aborted

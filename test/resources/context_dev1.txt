@@ -1,0 +1,35 @@
+*** Settings ***
+Documentation     THIS CONTEXT FILE WORKING WITH DEV1 SYSTEM
+Resource          ../env/dev1.txt
+Resource          actions.txt
+
+*** Variables ***
+#- CONTEXT VARIABLES ---
+${_AGENT}         /
+${_LOGIN}         /
+${_WORKING_DIR}    /
+${_HOST}          172.16.36.7
+
+*** Key Words ***
+Init AE And Package
+    Prepare Package    PCK.AUTOMIC_SMOKE_WEB
+    Action Connect    ${_AE_HOST}    ${_AE_PORT}    ${_AE_USER}    ${_AE_PASS}    ${_AE_TEMP_FOLD}
+
+Init Win Server
+    [Documentation]    TODO: Write server description here
+    Set Global Variable    ${_AGENT}    FL01DEV1
+    Set Global Variable    ${_LOGIN}    VVNSAT.LOGIN_ALL
+    Set Global Variable    ${_WORKING_DIR}    C:\\automic\\testcases\\PCK.AUTOMIC_SMOKE_WEB
+    Set Global Variable    ${/}    \\
+
+Init Unix Server
+    [Documentation]    TODO: Write server description here
+    Set Global Variable    ${_AGENT}    FL02DEV1
+    Set Global Variable    ${_LOGIN}    VVNSAT.LOGIN_ALL
+    Set Global Variable    ${_WORKING_DIR}    /opt/automic/testcases/PCK.AUTOMIC_SMOKE_WEB
+    Set Global Variable    ${/}    /
+
+Init Target Server
+    [Documentation]    Requirement
+    Run Keyword If    '${OS}' == 'WIN'    Init Win Server
+    Run Keyword If    '${OS}' == 'UNIX'    Init Unix Server

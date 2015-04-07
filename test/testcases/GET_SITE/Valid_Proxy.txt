@@ -1,0 +1,40 @@
+*** Settings ***
+Documentation     NOTE:
+...               add note here
+Suite Setup       Suite Setup
+Force Tags        GET_SEARCH_ELEMENT    win
+Test Template     Get Site Template
+Resource          ../../resources/keywords.txt
+
+*** Test Cases ***    URL                                      USERNAME         PASSWORD      TIMEOUT    IGNORE    PROXY HOST NAME    PROXY PORT    PROXY USERNAME    PROXY PASSWORD
+Valid NoProxy with user and password
+                      https://${_HOST}/smoke_web/basicauth/    Administrator    S3rv3r@Aut    10000      YES       172.16.36.18       3128          squid-user        ventum2011@
+
+Valid NoProxy with no user and pass
+                      https://${_HOST}/smoke_web/              ${EMPTY}         ${EMPTY}      10000      YES       172.16.36.18       3128          squid-user        ventum2011@
+
+Valid NoProxy with no user and pass, no certificate
+                      http://${_HOST}/smoke_web/               ${EMPTY}         ${EMPTY}      10000      NO        172.16.36.18       3128          squid-user        ventum2011@
+
+Valid NoProxy with user and pass, no certificate
+                      http://${_HOST}/smoke_web/basicauth/     Administrator    S3rv3r@Aut    10000      NO        172.16.36.18       3128          squid-user        ventum2011@
+
+*** Keywords ***
+Get Site Template
+    [Arguments]    ${url}    ${username}    ${password}    ${timeout}    ${ignore}    ${proxyHost}
+    ...    ${proxyPort}    ${proxyUser}    ${proxyPass}
+    Init Action    ${ACTION_GET_SITE}
+    Action Set    ${PRT_GET_SITE_ST_URL}    ${url}
+    Action Set    ${PRT_GET_SITE_ST_USERNAME}    ${username}
+    Action Set    ${PRT_GET_SITE_ST_PASSWORD}    ${password}
+    Action Set    ${PRT_GET_SITE_ST_OPEN_TIMEOUT}    ${timeout}
+    Action Set    ${PRT_GET_SITE_ST_IGNORE_SERVER_CERT}    ${ignore}
+    Action Set    ${PRT_GET_SITE_ST_PROXY_HOSTNAME}    ${proxyHost}
+    Action Set    ${PRT_GET_SITE_ST_PROXY_HOST_PORT}    ${proxyPort}
+    Action Set    ${PRT_GET_SITE_ST_PROXY_USERNAME}    ${proxyUser}
+    Action Set    ${PRT_GET_SITE_ST_PROXY_PASSWORD}    ${proxyPass}
+    Action Execute
+    Action Report Should Be Found
+    Action Return Code Should Be    0
+    #Action Return Status Should Be    ${returnStatus}
+    #Action Return Variable Should Be    &UC4RB_OUT_VARA#    ${outVara}
