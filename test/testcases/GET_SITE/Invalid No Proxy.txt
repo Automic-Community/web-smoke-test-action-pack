@@ -6,21 +6,21 @@ Force Tags        GET_SEARCH_ELEMENT    win
 Test Template     Get Site Template
 Resource          ../../resources/keywords.txt
 
-*** Test Cases ***    URL                                         USERNAME         PASSWORD      TIMEOUT    IGNORE    RETURN CODE
+*** Test Cases ***    URL                                             USERNAME         PASSWORD      TIMEOUT    IGNORE    RETURN CODE
 Invalid user with proxy
-                      https://${_HOST}/smoke_web/basicauth/       Adminis          S3rv3r@Aut    10000      YES       3
+                      https://${_HOST}/smoke_web/basicauth/           Adminis          S3rv3r@Aut    10000      YES       3
 
 Invalid password with proxy
-                      https://${_HOST}/smoke_web/basicauth/       Administrator    ${EMPTY}      10000      YES       3
+                      https://${_HOST}/smoke_web/basicauth/           Administrator    ${EMPTY}      10000      YES       3
 
 Timeout               #Sites is not existed, or sites are down
-                      http://10.255.255.1                         Administrator    S3rv3r@Aut    10000      NO        1
+                      http://${_HOST}/smoke_web/timeout/index.aspx    Administrator    S3rv3r@Aut    10000      NO        1
 
 Web Server is not available
-                      http://127.0.0.1:3434/                      ${EMPTY}         ${EMPTY}      10000      YES       2
+                      http://127.0.0.1:3434/                          ${EMPTY}         ${EMPTY}      10000      YES       2
 
 Not Ignore certificate for HTTPS sites, with proxy
-                      https://${_HOST}/smoke_web/                 ${EMPTY}         ${EMPTY}      10000      NO        6
+                      https://${_HOST}/smoke_web/                     ${EMPTY}         ${EMPTY}      10000      NO        6
 
 *** Keywords ***
 Get Site Template

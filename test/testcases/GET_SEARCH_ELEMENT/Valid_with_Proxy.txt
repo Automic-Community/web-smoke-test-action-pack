@@ -4,6 +4,7 @@ Documentation     NOTE:
 Suite Setup       Suite Setup
 Force Tags        GET_SEARCH_ELEMENT    win
 Test Template     Get Search Element Template
+Test Timeout
 Resource          ../../resources/keywords.txt
 
 *** Test Cases ***    URL                                      EXPECTED                                   USERNAME         PASSWORD      TIMEOUT    IGNORE    PROXY HOST NAME    PROXY PORT    PROXY USERNAME    PROXY PASSWORD

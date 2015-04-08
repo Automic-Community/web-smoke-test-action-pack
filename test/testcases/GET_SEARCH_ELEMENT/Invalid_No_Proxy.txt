@@ -6,23 +6,23 @@ Force Tags        GET_SEARCH_ELEMENT    win
 Test Template     Get Search Element Template
 Resource          ../../resources/keywords.txt
 
-*** Test Cases ***    URL                                      EXPECTED                                   USERNAME         PASSWORD      TIMEOUT    IGNORE    RETURN CODE
+*** Test Cases ***    URL                                              EXPECTED                                         USERNAME         PASSWORD      TIMEOUT    IGNORE    RETURN CODE
 Invalid user with proxy
-                      https://${_HOST}/smoke_web/basicauth/    //body[contains(text(),'hello world!')]    Adminis          S3rv3r@Aut    10000      YES       3
+                      https://${_HOST}/smoke_web/basicauth/            //body[contains(text(),'hello world!')]          Adminis          S3rv3r@Aut    10000      YES       3
 
 Invalid password with proxy
-                      https://${_HOST}/smoke_web/basicauth/    //body[contains(text(),'hello world!')]    Administrator    S3rv3r        10000      YES       3
+                      https://${_HOST}/smoke_web/basicauth/            //body[contains(text(),'hello world!')]          Administrator    S3rv3r        10000      YES       3
 
-Timeout               http://10.255.255.1                      //body[contains(text(),'hello world!')]    ${EMPTY}         ${EMPTY}      10000      YES       1
+Timeout               https://${_HOST}/smoke_web/timeout/index.aspx    //body[contains(text(),'Timeout Simulation')]    ${EMPTY}         ${EMPTY}      1000       YES       1
 
 WebServer is not available
-                      http://127.0.0.1:3434/                   //body[contains(text(),'hello world!')]    ${EMPTY}         ${EMPTY}      10000      YES       2
+                      http://127.0.0.1:3434/                           //body[contains(text(),'hello world!')]          ${EMPTY}         ${EMPTY}      10000      YES       2
 
 Not Ignore certificate for HTTPS sites, with proxy
-                      https://${_HOST}/smoke_web/              //body[contains(text(),'hello world!')]    ${EMPTY}         ${EMPTY}      10000      NO        6
+                      https://${_HOST}/smoke_web/                      //body[contains(text(),'hello world!')]          ${EMPTY}         ${EMPTY}      10000      NO        6
 
 Expected element does not appear on the page
-                      http://${_HOST}/smoke_web/basicauth/     //body[text()='not found']                 Administrator    S3rv3r@Aut    10000      NO        7
+                      http://${_HOST}/smoke_web/basicauth/             //body[text()='not found']                       Administrator    S3rv3r@Aut    10000      NO        7
 
 *** Keywords ***
 Get Search Element Template
