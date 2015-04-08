@@ -9,17 +9,17 @@
 			</pattern>
 		</encoder>
 	</appender>
-	<!-- Send debug messages to a file at "./deploy-manager.log" -->
+	<!-- Send debug messages to a file at "./smoke-web-tool.log" -->
 	<appender name="FILE"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>./deploy-manager.log</file>
+		<file>./smoke-web-tool.log</file>
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<Pattern>%d{yyyy-MM-dd_HH:mm:ss.SSS} [%thread] %-5level %logger{36} -
 				%msg%n</Pattern>
 		</encoder>
 
 		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
-			<FileNamePattern>./deploy-manager.%i.log.zip</FileNamePattern>
+			<FileNamePattern>./smoke-web-tool.%i.log.zip</FileNamePattern>
 			<MinIndex>1</MinIndex>
 			<MaxIndex>10</MaxIndex>
 		</rollingPolicy>
@@ -35,8 +35,8 @@
 		<appender-ref ref="FILE" />
 	</logger>
 
-	<!-- By default, the level of the root level is set to DEBUG -->
-	<root level="DEBUG">
+	<!-- By default, the level of the root level is set to INFO -->
+	<root level="INFO">
 		<!-- <appender-ref ref="STDOUT" /> -->
 		<appender-ref ref="FILE" />
 	</root>
