@@ -132,7 +132,7 @@ public class PostSearchText extends AbstractWebSmokeTest {
         String cleanedContent = WebTestUtils.html2text(content);
         if (StringUtils.isEmpty(cleanedContent)) {
           Logger.log("Received an empty content page.", this.loglevelValue);
-          return TEXT_NOT_FOUND;
+          return TEXT_NOT_FOUND_AFTER_SUBMIT;
         }
         
         //Logger.logDebug("Page content: " + cleanedContent, this.loglevelValue); 
@@ -142,11 +142,11 @@ public class PostSearchText extends AbstractWebSmokeTest {
         if (isRegexValue) {
           Pattern p = Pattern.compile(expectedTextValue, Pattern.CASE_INSENSITIVE | Pattern.DOTALL); 
           Matcher m = p.matcher(cleanedContent);
-          statusCode = m.find() ? OK : TEXT_NOT_FOUND;
+          statusCode = m.find() ? OK : TEXT_NOT_FOUND_AFTER_SUBMIT;
           Logger.log(statusCode == OK ? "The given text matches.": "The given text does not match.", this.loglevelValue);
           return statusCode;
         } else {
-          statusCode = cleanedContent.toLowerCase().contains(expectedTextValue.toLowerCase()) ? OK : TEXT_NOT_FOUND;
+          statusCode = cleanedContent.toLowerCase().contains(expectedTextValue.toLowerCase()) ? OK : TEXT_NOT_FOUND_AFTER_SUBMIT;
           Logger.log(statusCode == OK ? "Found the given text in page content.":"Couldn't find the given text in page content.",  this.loglevelValue);
           return statusCode; 
         }

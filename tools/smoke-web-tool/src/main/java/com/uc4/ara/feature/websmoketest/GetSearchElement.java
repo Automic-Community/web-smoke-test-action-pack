@@ -114,7 +114,9 @@ public class GetSearchElement extends AbstractWebSmokeTest {
         TagNode tagnode = htmlCleaner.clean(content);
         EntityUtils.consume(entity);
      
-        Document doc = new DomSerializer(new CleanerProperties()).createDOM(tagnode);
+        CleanerProperties prop = new CleanerProperties();
+        prop.setNamespacesAware(false);
+        Document doc = new DomSerializer(prop).createDOM(tagnode);
         Logger.log("Evaluating XPath expression: " + expectedElementValue, this.loglevelValue);
         Node node = (Node) xpathExpr.evaluate(doc, XPathConstants.NODE);
         if (node != null) {
