@@ -2,7 +2,7 @@
 Documentation     NOTE:
 ...               add note here
 Suite Setup       Suite Setup
-Force Tags        GET_SEARCH_ELEMENT    win
+Force Tags        GET_SEARCH_ELEMENT    win    unix
 Test Template     Get Search Element Template
 Test Timeout
 Resource          ../../resources/keywords.txt

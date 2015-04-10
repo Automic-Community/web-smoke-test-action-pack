@@ -2,7 +2,7 @@
 Documentation     NOTE:
 ...               add note here
 Suite Setup       Suite Setup
-Force Tags        POST_SEARCH_TEXT    win
+Force Tags        POST_SEARCH_TEXT    win    unix
 Test Template     Post Search Text Template
 Resource          ../../resources/keywords.txt
 

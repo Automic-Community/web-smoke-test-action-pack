@@ -2,7 +2,7 @@
 Documentation     NOTE:
 ...               add note here
 Suite Setup       Suite Setup
-Force Tags        GET_SEARCH_TITLE    win
+Force Tags        GET_SEARCH_TITLE    win    unix
 Test Template     Get Search Title Template
 Resource          ../../resources/keywords.txt
 
