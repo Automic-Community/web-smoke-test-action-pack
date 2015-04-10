@@ -13,7 +13,7 @@ Invalid password      https://${_HOST}/smoke_web/basicauth/           Web smoke 
 
 Not ignore            https://${_HOST}/smoke_web/                     Web smoke test            NO       ${EMPTY}         ${EMPTY}      10000      NO        6
 
-Timeout               http://${_HOST}/smoke_web/timeout/index.aspx    Web smoke test            NO       Administrator    S3rv3r@Aut    10000      NO        1
+Timeout               http://${_HOST}/smoke_web/timeout/index.aspx    Web smoke test            NO       Administrator    S3rv3r@Aut    1000       NO        1
 
 Webserver not available
                       http://127.0.0.1:3434/                          Web [^t]moke test         YES      Administrator    S3rv3r@Aut    60000      YES       2

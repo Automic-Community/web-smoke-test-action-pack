@@ -14,7 +14,7 @@ Invalid password with proxy
                       https://${_HOST}/smoke_web/basicauth/           Administrator    ${EMPTY}      10000      YES       3
 
 Timeout               #Sites is not existed, or sites are down
-                      http://${_HOST}/smoke_web/timeout/index.aspx    Administrator    S3rv3r@Aut    10000      NO        1
+                      http://${_HOST}/smoke_web/timeout/index.aspx    Administrator    S3rv3r@Aut    1000       NO        1
 
 Web Server is not available
                       http://127.0.0.1:3434/                          ${EMPTY}         ${EMPTY}      10000      YES       2

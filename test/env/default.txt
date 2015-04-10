@@ -3,7 +3,7 @@ Library           com.automic.robot.itpa.ItpaLibrary
 
 *** Variables ***
 #---- AE -------------------------
-@{AE}             AE11ITPA    vvnsat03    2217    ${AE_CLIENT}/API/API    123    # system, host, port, user, pass
+@{AE}             AE11ITPA    vvnsat03    2217    130/API/API    123    # system, host, port, user, pass
 #---- GLOBAL CONTEXT VARIABLES ---
 ${_AE_SYSTEM}     @{AE}[0]
 ${_AE_HOST}       @{AE}[1]
