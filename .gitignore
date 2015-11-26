@@ -6,3 +6,5 @@ tools/smoke-web-tool/.settings/org.eclipse.jdt.core.prefs
 tools/smoke-web-tool/.settings/org.eclipse.m2e.core.prefs
 config.yml
 .settings
+
+.sonar
