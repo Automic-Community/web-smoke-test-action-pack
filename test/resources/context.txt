@@ -16,14 +16,14 @@ Init AE And Package
 
 Init Win Server
     [Documentation]    TODO: Write server description here
-    Set Global Variable    ${_AGENT}    FL01AT03
+    Set Global Variable    ${_AGENT}    VVNWINDOWS01
     Set Global Variable    ${_LOGIN}    VVNSAT.LOGIN_ALL
     Set Global Variable    ${_WORKING_DIR}    C:\\automic\\testcases\\PCK.AUTOMIC_SMOKE_WEB
     Set Global Variable    ${/}    \\
 
 Init Unix Server
     [Documentation]    TODO: Write server description here
-    Set Global Variable    ${_AGENT}    FL02AT03
+    Set Global Variable    ${_AGENT}    VVNUNIX01
     Set Global Variable    ${_LOGIN}    VVNSAT.LOGIN_ALL
     Set Global Variable    ${_WORKING_DIR}    /opt/automic/testcases/PCK.AUTOMIC_SMOKE_WEB
     Set Global Variable    ${/}    /

@@ -1,11 +1,8 @@
 connection.properties
 tools/smoke-web-tool/.classpath
 tools/smoke-web-tool/.project
-tools/smoke-web-tool/.settings/org.eclipse.core.resources.prefs
-tools/smoke-web-tool/.settings/org.eclipse.jdt.core.prefs
-tools/smoke-web-tool/.settings/org.eclipse.m2e.core.prefs
+tools/smoke-web-tool/.settings/
 config.yml
 .settings
-
-.sonar
+.project
 .sonar
