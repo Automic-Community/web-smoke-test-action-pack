@@ -11,4 +11,4 @@ binaries:
       - name: SMOKEWEBTOOL.JAR
         type: BINARY
         path: tools/smoke-web-tool/target/smoke-web-tool.jar
-        version: 1.0.0
+        version: 1.0.1
