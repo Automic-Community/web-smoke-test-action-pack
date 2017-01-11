@@ -8,6 +8,7 @@ Resource          ../../resources/keywords.txt
 
 *** Test Cases ***    URL                                      EXPECTED                                   USERNAME         PASSWORD      TIMEOUT    IGNORE
 Valid, with user, password, proxy
+                      [Tags]                                   SMOKE_TEST
                       https://${_HOST}/smoke_web/basicauth/    //body[contains(text(),'hello world!')]    Administrator    S3rv3r@Aut    10000      YES
 
 Valid, with no user, no pass, proxy
