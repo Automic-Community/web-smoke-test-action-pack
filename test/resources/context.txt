@@ -8,7 +8,7 @@ Resource          actions.txt
 ${_AGENT}         /
 ${_LOGIN}         /
 ${_WORKING_DIR}    /
-${_HOST}          vvnwindows02    #172.16.36.7
+${_HOST}          172.16.36.60    #vvnwindows02
 
 *** Key Words ***
 Init AE And Package
