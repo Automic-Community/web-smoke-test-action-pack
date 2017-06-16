@@ -13,6 +13,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpUriRequest;
 
 import com.uc4.ara.feature.globalcodes.ErrorCodes;
 import com.uc4.ara.util.Logger;
@@ -58,7 +59,7 @@ public class GetSite extends AbstractWebSmokeTest {
     }
     
     // make GET request
-    HttpGet httpGet = new HttpGet(input.getUrl());
+    HttpUriRequest httpGet = new HttpGet(input.getUrl());
     
     try {
       HttpResponse response = httpclient.execute(httpGet);
