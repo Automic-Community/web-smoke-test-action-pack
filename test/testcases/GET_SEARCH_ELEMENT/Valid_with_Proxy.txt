@@ -9,16 +9,16 @@ Resource          ../../resources/keywords.txt
 
 *** Test Cases ***    URL                                      EXPECTED                                   USERNAME         PASSWORD      TIMEOUT    IGNORE    PROXY HOST NAME    PROXY PORT    PROXY USERNAME    PROXY PASSWORD
 Valid Proxy with user and password
-                      https://${_HOST}/smoke_web/basicauth/    //body[contains(text(),'hello world!')]    Administrator    S3rv3r@Aut    10000      YES       {PROXY_HOST}       {PROXY_PORT}          {PROXY_USER}        {PROXY_PW}
+                      https://${_HOST}/smoke_web/basicauth/    //body[contains(text(),'hello world!')]    Administrator    S3rv3r@Aut    10000      YES       172.16.36.18       3128          squid-user        ventum2011@
 
 Valid Proxy with no user and pass
-                      https://${_HOST}/smoke_web/              //body[contains(text(),'hello world!')]    ${EMPTY}         ${EMPTY}      10000      YES       {PROXY_HOST}       {PROXY_PORT}          {PROXY_USER}        {PROXY_PW}
+                      https://${_HOST}/smoke_web/              //body[contains(text(),'hello world!')]    ${EMPTY}         ${EMPTY}      10000      YES       172.16.36.18       3128          squid-user        ventum2011@
 
 Valid Proxy with no user and pass, no certificate
-                      http://${_HOST}/smoke_web/               //body[contains(text(),'hello world!')]    ${EMPTY}         ${EMPTY}      10000      NO        {PROXY_HOST}       {PROXY_PORT}          {PROXY_USER}        {PROXY_PW}
+                      http://${_HOST}/smoke_web/               //body[contains(text(),'hello world!')]    ${EMPTY}         ${EMPTY}      10000      NO        172.16.36.18       3128          squid-user        ventum2011@
 
 Valid Proxy with user and pass, no certificate
-                      http://${_HOST}/smoke_web/basicauth/     //body[contains(text(),'hello world!')]    Administrator    S3rv3r@Aut    10000      NO        {PROXY_HOST}       {PROXY_PORT}          {PROXY_USER}        {PROXY_PW}
+                      http://${_HOST}/smoke_web/basicauth/     //body[contains(text(),'hello world!')]    Administrator    S3rv3r@Aut    10000      NO        172.16.36.18       3128          squid-user        ventum2011@
 
 *** Keywords ***
 Get Search Element Template
