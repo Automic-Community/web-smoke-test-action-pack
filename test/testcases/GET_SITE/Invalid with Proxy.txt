@@ -8,26 +8,26 @@ Resource          ../../resources/keywords.txt
 
 *** Test Cases ***    URL                                      USERNAME                            PASSWORD      TIMEOUT     IGNORE    PROXY HOST       PROXY PORT      PROXY USER    PROXY PASS     RETURN CODE
 Invalid user with proxy
-                      https://${_HOST}/smoke_web/basicauth/    Administ                            S3rv3r@Aut    10000       YES       172.16.36.18     3128            squid-user    ventum2011@    3
+                      https://${_HOST}/smoke_web/basicauth/    Administ                            S3rv3r@Aut    10000       YES       ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    3
 
 Invalid password with proxy
-                      https://${_HOST}/smoke_web/basicauth/    Administrator                       S3rv3r        10000       YES       172.16.36.18     3128            squid-user    ventum2011@    3
+                      https://${_HOST}/smoke_web/basicauth/    Administrator                       S3rv3r        10000       YES       ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    3
 
-Timeout               http://10.255.255.1                      ${EMPTY}                            ${EMPTY}      10000       YES       172.16.36.18     3128            squid-user    ventum2011@    1
+Timeout               http://10.255.255.1                      ${EMPTY}                            ${EMPTY}      10000       YES       ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    1
                       #Web Server is not available
-                      #                                        https://172.16.106.57/smoke_web/    ${EMPTY}      ${EMPTY}    10000     YES              172.16.36.18    3128          squid-user     ventum2011@    2
+                      #                                        https://172.16.106.57/smoke_web/    ${EMPTY}      ${EMPTY}    10000     YES              ${PROXY_HOST}    ${PROXY_PORT}          ${PROXY_USER}     ${PROXY_PW}    2
 
 Not Ignore certificate for HTTPS sites, with proxy
-                      https://${_HOST}/smoke_web/              ${EMPTY}                            ${EMPTY}      10000       NO        172.16.36.18     3128            squid-user    ventum2011@    6
+                      https://${_HOST}/smoke_web/              ${EMPTY}                            ${EMPTY}      10000       NO        ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    6
 
 Proxy server is not available
-                      http://${_HOST}/smoke_web/basicauth/     Administrator                       S3rv3r@Aut    10000       NO        172.16.96.108    3128            squid-user    ventum2011@    4
+                      http://${_HOST}/smoke_web/basicauth/     Administrator                       S3rv3r@Aut    10000       NO        172.16.96.108    ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    4
 
 Wrong proxy username
-                      http://${_HOST}/smoke_web/basicauth/     Administrator                       S3rv3r@Aut    10000       NO        172.16.36.18     3128            squid         ventum2011@    5
+                      http://${_HOST}/smoke_web/basicauth/     Administrator                       S3rv3r@Aut    10000       NO        ${PROXY_HOST}     ${PROXY_PORT}            squid         ${PROXY_PW}    5
 
 Wrong proxy password
-                      http://${_HOST}/smoke_web/basicauth/     Administrator                       S3rv3r@Aut    10000       NO        172.16.36.18     3128            squid-user    ventum         5
+                      http://${_HOST}/smoke_web/basicauth/     Administrator                       S3rv3r@Aut    10000       NO        ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ventum         5
 
 *** Keywords ***
 Get Site Template

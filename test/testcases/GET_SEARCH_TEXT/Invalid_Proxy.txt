@@ -7,41 +7,41 @@ Test Template     Get Search Text Template
 Resource          ../../resources/keywords.txt
 
 *** Test Cases ***    URL                                      EXPECTED                           REGEX       USERNAME         PASSWORD         TIMEOUT       IGNORE    PROXY HOST       PROXY PORT      PROXY USER    PROXY PASS     RETURN CODE
-Text not match        https://${_HOST}/smoke_web/              helloworld                         NO          ${EMPTY}         ${EMPTY}         10000         YES       172.16.36.18     3128            squid-user    ventum2011@    7
+Text not match        https://${_HOST}/smoke_web/              helloworld                         NO          ${EMPTY}         ${EMPTY}         10000         YES       ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    7
 
-Invalid username      http://${_HOST}/smoke_web/basicauth/     world                              NO          Admin            S3rv3r@Aut       10000         NO        172.16.36.18     3128            squid-user    ventum2011@    3
+Invalid username      http://${_HOST}/smoke_web/basicauth/     world                              NO          Admin            S3rv3r@Aut       10000         NO        ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    3
 
-Invalid password      http://${_HOST}/smoke_web/basicauth/     hello                              NO          Administrator    S3rv3r           10000         NO        172.16.36.18     3128            squid-user    ventum2011@    3
+Invalid password      http://${_HOST}/smoke_web/basicauth/     hello                              NO          Administrator    S3rv3r           10000         NO        ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    3
 
 No Ignore certificate for HTTPS
-                      https://${_HOST}/smoke_web/basicauth/    [^t]ello                           YES         Administrator    S3rv3r@Aut       10000         NO        172.16.36.18     3128            squid-user    ventum2011@    6
+                      https://${_HOST}/smoke_web/basicauth/    [^t]ello                           YES         Administrator    S3rv3r@Aut       10000         NO        ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    6
 
-Timeout               http://10.255.255.1                      [hc]*w.rld                         YES         Administrator    S3rv3r@Aut       10000         NO        172.16.36.18     3128            squid-user    ventum2011@    1
+Timeout               http://10.255.255.1                      [hc]*w.rld                         YES         Administrator    S3rv3r@Aut       10000         NO        ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    1
                       #Webserver not available
-                      #                                        http://172.16.106.57/smoke_web/    worl[da]    YES              Administrator    S3rv3r@Aut    10000     NO               172.16.36.18    3128          squid-user     ventum2011@    2
+                      #                                        http://172.16.106.57/smoke_web/    worl[da]    YES              Administrator    S3rv3r@Aut    10000     NO               ${PROXY_HOST}    ${PROXY_PORT}          ${PROXY_USER}     ${PROXY_PW}    2
 
 Proxy Server not available,
-                      http://${_HOST}/smoke_web/               worl[da]                           YES         Administrator    S3rv3r@Aut       10000         NO        172.16.36.108    3128            squid-user    ventum2011@    4
+                      http://${_HOST}/smoke_web/               worl[da]                           YES         Administrator    S3rv3r@Aut       10000         NO        172.16.36.108    ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    4
 
 Proxy Server not available, wrong port
-                      http://${_HOST}/smoke_web/               worl[da]                           YES         Administrator    S3rv3r@Aut       10000         NO        172.16.36.18     3028            squid-user    ventum2011@    4
+                      http://${_HOST}/smoke_web/               worl[da]                           YES         Administrator    S3rv3r@Aut       10000         NO        ${PROXY_HOST}     3028            ${PROXY_USER}    ${PROXY_PW}    4
 
 Wrong proxy username
-                      http://${_HOST}/smoke_web/               worl[da]                           YES         Administrator    S3rv3r@Aut       10000         NO        172.16.36.18     3128            wrong         ventum2011@    5
+                      http://${_HOST}/smoke_web/               worl[da]                           YES         Administrator    S3rv3r@Aut       10000         NO        ${PROXY_HOST}     ${PROXY_PORT}            wrong         ${PROXY_PW}    5
 
 Wrong proxy Password
-                      http://${_HOST}/smoke_web/               worl[da]                           YES         Administrator    S3rv3r@Aut       10000         NO        172.16.36.18     3128            squid-user    ${EMPTY}       5
+                      http://${_HOST}/smoke_web/               worl[da]                           YES         Administrator    S3rv3r@Aut       10000         NO        ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ${EMPTY}       5
 
-Text not match        https://${_HOST}/smoke_web/              helloworld                         NO          ${EMPTY}         ${EMPTY}         10000         YES       172.16.36.18     3128            squid-user    ventum2011@    7
+Text not match        https://${_HOST}/smoke_web/              helloworld                         NO          ${EMPTY}         ${EMPTY}         10000         YES       ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    7
 
 No Regex, but input regular expression
-                      https://${_HOST}/smoke_web/              hel{2,3}o |world                   NO          ${EMPTY}         ${EMPTY}         10000         YES       172.16.36.18     3128            squid-user    ventum2011@    7
+                      https://${_HOST}/smoke_web/              hel{2,3}o |world                   NO          ${EMPTY}         ${EMPTY}         10000         YES       ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    7
 
 Text in Regex not match
-                      http://${_HOST}/smoke_web/               he?llo{4,5}rl[yv]                  YES         ${EMPTY}         ${EMPTY}         10000         NO        172.16.36.18     3128            squid-user    ventum2011@    7
+                      http://${_HOST}/smoke_web/               he?llo{4,5}rl[yv]                  YES         ${EMPTY}         ${EMPTY}         10000         NO        ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    7
 
 Text does not match, different space character in the midle of string
-                      https://${_HOST}/smoke_web/basicauth/    hello \ world                      NO          Administrator    S3rv3r@Aut       10000         YES       172.16.36.18     3128            squid-user    ventum2011@    7
+                      https://${_HOST}/smoke_web/basicauth/    hello \ world                      NO          Administrator    S3rv3r@Aut       10000         YES       ${PROXY_HOST}     ${PROXY_PORT}            ${PROXY_USER}    ${PROXY_PW}    7
 
 *** Keywords ***
 Get Search Text Template

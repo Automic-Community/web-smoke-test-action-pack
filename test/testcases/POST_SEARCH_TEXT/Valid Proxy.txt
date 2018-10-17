@@ -9,37 +9,37 @@ Resource          ../../resources/keywords.txt
 *** Test Cases ***    URL                                               KEY VALUE                        EXPECTED TITLE             REGEX    USERNAME         PASSWORD      TIMEOUT    IGNORE    PROXY HOST      PROXY PORT    PROXY USER    PROXY PASS
 Valid Proxy with text, user and password,
                       [Tags]                                            SMOKE_TEST
-                      https://${_HOST}/smoke_web/basicauth/post.aspx    name=world                       Hello world                NO       Administrator    S3rv3r@Aut    10000      YES       172.16.36.18    3128          squid-user    ventum2011@
+                      https://${_HOST}/smoke_web/basicauth/post.aspx    name=world                       Hello world                NO       Administrator    S3rv3r@Aut    10000      YES       ${PROXY_HOST}    ${PROXY_PORT}          ${PROXY_USER}    ${PROXY_PW}
 
 Valid Proxy with text, no user and pass
-                      https://${_HOST}/smoke_web/post.aspx              name=world                       Hello world                NO       ${EMPTY}         ${EMPTY}      10000      YES       172.16.36.18    3128          squid-user    ventum2011@
+                      https://${_HOST}/smoke_web/post.aspx              name=world                       Hello world                NO       ${EMPTY}         ${EMPTY}      10000      YES       ${PROXY_HOST}    ${PROXY_PORT}          ${PROXY_USER}    ${PROXY_PW}
 
 Valid Proxy with text, no user and pass, no certificate
-                      http://${_HOST}/smoke_web/post.aspx               name=world                       Hello world                NO       ${EMPTY}         ${EMPTY}      10000      NO        172.16.36.18    3128          squid-user    ventum2011@
+                      http://${_HOST}/smoke_web/post.aspx               name=world                       Hello world                NO       ${EMPTY}         ${EMPTY}      10000      NO        ${PROXY_HOST}    ${PROXY_PORT}          ${PROXY_USER}    ${PROXY_PW}
 
 Valid Proxy with text, user and pass, no certificate
-                      http://${_HOST}/smoke_web/basicauth/post.aspx     name=world                       Hello world                NO       Administrator    S3rv3r@Aut    10000      NO        172.16.36.18    3128          squid-user    ventum2011@
+                      http://${_HOST}/smoke_web/basicauth/post.aspx     name=world                       Hello world                NO       Administrator    S3rv3r@Aut    10000      NO        ${PROXY_HOST}    ${PROXY_PORT}          ${PROXY_USER}    ${PROXY_PW}
 
 Valid Proxy with user and password
-                      http://${_HOST}/smoke_web/basicauth/post.aspx     name=world, email=ntn@automic    Hel{1,2}o world            YES      Administrator    S3rv3r@Aut    10000      YES       172.16.36.18    3128          squid-user    ventum2011@
+                      http://${_HOST}/smoke_web/basicauth/post.aspx     name=world, email=ntn@automic    Hel{1,2}o world            YES      Administrator    S3rv3r@Aut    10000      YES       ${PROXY_HOST}    ${PROXY_PORT}          ${PROXY_USER}    ${PROXY_PW}
 
 Valid Proxy with no user and pass
-                      https://${_HOST}/smoke_web/post.aspx              name=world, email=ntn@automic    hel{2,3}o |world           YES      ${EMPTY}         ${EMPTY}      10000      YES       172.16.36.18    3128          squid-user    ventum2011@
+                      https://${_HOST}/smoke_web/post.aspx              name=world, email=ntn@automic    hel{2,3}o |world           YES      ${EMPTY}         ${EMPTY}      10000      YES       ${PROXY_HOST}    ${PROXY_PORT}          ${PROXY_USER}    ${PROXY_PW}
 
 Valid Proxy with no user and pass, no certificate
-                      http://${_HOST}/smoke_web/post.aspx               name=world, email=ntn@automic    aur?t.mic                  YES      ${EMPTY}         ${EMPTY}      10000      NO        172.16.36.18    3128          squid-user    ventum2011@
+                      http://${_HOST}/smoke_web/post.aspx               name=world, email=ntn@automic    aur?t.mic                  YES      ${EMPTY}         ${EMPTY}      10000      NO        ${PROXY_HOST}    ${PROXY_PORT}          ${PROXY_USER}    ${PROXY_PW}
 
 Valid Proxy with user and pass, no certificate
-                      http://${_HOST}/smoke_web/basicauth/post.aspx     name=world, email=ntn@automic    @automi[cv]$               YES      Administrator    S3rv3r@Aut    10000      NO        172.16.36.18    3128          squid-user    ventum2011@
+                      http://${_HOST}/smoke_web/basicauth/post.aspx     name=world, email=ntn@automic    @automi[cv]$               YES      Administrator    S3rv3r@Aut    10000      NO        ${PROXY_HOST}    ${PROXY_PORT}          ${PROXY_USER}    ${PROXY_PW}
 
 Regex, but input text
-                      http://${_HOST}/smoke_web/basicauth/post.aspx     name=world, email=ntn@automic    ntn@automic                YES      Administrator    S3rv3r@Aut    10000      NO        172.16.36.18    3128          squid-user    ventum2011@
+                      http://${_HOST}/smoke_web/basicauth/post.aspx     name=world, email=ntn@automic    ntn@automic                YES      Administrator    S3rv3r@Aut    10000      NO        ${PROXY_HOST}    ${PROXY_PORT}          ${PROXY_USER}    ${PROXY_PW}
 
 Strim space character at the beggining and end of string
-                      http://${_HOST}/smoke_web/basicauth/post.aspx     name=world, email=ntn@automic    My email is ntn@automic    YES      Administrator    S3rv3r@Aut    10000      NO        172.16.36.18    3128          squid-user    ventum2011@
+                      http://${_HOST}/smoke_web/basicauth/post.aspx     name=world, email=ntn@automic    My email is ntn@automic    YES      Administrator    S3rv3r@Aut    10000      NO        ${PROXY_HOST}    ${PROXY_PORT}          ${PROXY_USER}    ${PROXY_PW}
 
 Text does not match, sensitive case
-                      https://${_HOST}/smoke_web/post.aspx              name=world                       hello world                NO       ${EMPTY}         ${EMPTY}      10000      YES       172.16.36.18    3128          squid-user    ventum2011@
+                      https://${_HOST}/smoke_web/post.aspx              name=world                       hello world                NO       ${EMPTY}         ${EMPTY}      10000      YES       ${PROXY_HOST}    ${PROXY_PORT}          ${PROXY_USER}    ${PROXY_PW}
 
 *** Keywords ***
 Post Search Text Template
