@@ -9,6 +9,12 @@ Suite Setup
     Init Target Server
     Init AE And Package
 
+Suite Setup Proxy
+    Init Target Server
+    Init AE And Package
+
+Suite Teardown Proxy
+	
 Init Action
     [Arguments]    ${actionName}
     Action Create    ${actionName}
@@ -52,3 +58,9 @@ Action Return Variable Should Be Equal As Integers
     [Arguments]    ${variableValue}
     ${out}=    Action Get Variable    ${variableName}
     Should Be Equal As Integers    ${out}    ${variableValue}
+
+Set Proxy
+    Action Create    ${actionName}
+    Action Set    ${PROMPTSET_AGENT}    VVNUNIX02
+    Action Set    ${PROMPTSET_LOGIN}    ${_LOGIN}
+Unset Proxy
