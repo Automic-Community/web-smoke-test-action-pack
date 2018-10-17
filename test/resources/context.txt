@@ -8,11 +8,11 @@ Resource          actions.txt
 ${_AGENT}         /
 ${_LOGIN}         /
 ${_WORKING_DIR}    /
-${_HOST}          vvnwindows02    #vvnwindows02
+${_HOST}          vvnwindows02 
 ${PROXY_HOST}    vvnunix02
 ${PROXY_PORT}    3128
-${PROXY_HOST}    squid-user
-${PROXY_HOST}    ventum2011@
+${PROXY_USER}    squid-user
+${PROXY_PASSWORD}    ventum2011@
 
 
 *** Key Words ***
