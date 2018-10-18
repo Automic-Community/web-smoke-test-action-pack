@@ -12,7 +12,7 @@ ${_HOST}          vvnwindows02
 ${PROXY_HOST}    vvnunix02
 ${PROXY_PORT}    3128
 ${PROXY_USER}    squid-user
-${PROXY_PASSWORD}    ventum2011@
+${PROXY_PASSWORD}    ventum2011
 
 
 *** Key Words ***
