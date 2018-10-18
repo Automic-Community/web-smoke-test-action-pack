@@ -8,8 +8,8 @@ Resource          actions.txt
 ${_AGENT}         /
 ${_LOGIN}         /
 ${_WORKING_DIR}    /
-${_HOST}          vvnwindows02 
-${PROXY_HOST}    vvnunix02
+${_HOST}          vvnwindows02.sbb01.spoc.global  #Fully Qualified Domain Name 
+${PROXY_HOST}    vvnunix02.sbb01.spoc.global  #Fully Qualified Domain Name 
 ${PROXY_PORT}    3128
 ${PROXY_USER}    squid-user
 ${PROXY_PW}    ventum2011
