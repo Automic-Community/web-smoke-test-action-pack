@@ -36,7 +36,7 @@ The Web Smoke Test functions help you to carry out simple tests after deploying 
 
 ###### Package/Action Documentation
 
-Please refer to the link for [package documentation](source/ae/DOCUMENTATION/PCK.AUTOMIC_SMOKE_WEB.PUB.DOC)
+Please refer to the link for [package documentation](source/ae/DOCUMENTATION/PCK.AUTOMIC_SMOKE_WEB.PUB.DOC.xml)
 
 ###### Third party licenses:
 
