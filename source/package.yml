@@ -1,0 +1,14 @@
+# Package Build Configuration 
+name: PCK.AUTOMIC_SMOKE_WEB
+
+source: ae
+  
+# binary object resource mapping will be defined here
+binaries:
+  
+  - object: RESOURCES/LIBS/PCK.AUTOMIC_SMOKE_WEB.PRV.STORE
+    resources: 
+      - name: SMOKEWEBTOOL.JAR
+        type: BINARY
+        path: tools/smoke-web-tool/target/smoke-web-tool.jar
+        version: 1.0.3

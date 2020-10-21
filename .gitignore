@@ -1,8 +1,0 @@
-connection.properties
-tools/smoke-web-tool/.classpath
-tools/smoke-web-tool/.project
-tools/smoke-web-tool/.settings/
-config.yml
-.settings
-.project
-.sonar
